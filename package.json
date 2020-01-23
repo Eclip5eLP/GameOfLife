@@ -1,0 +1,18 @@
+{
+  "name": "gameoflife",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^6.1.2",
+    "electron-packager": "^14.2.0"
+  },
+  "dependencies": {
+    "electron-prebuilt": "^1.4.13"
+  }
+}
