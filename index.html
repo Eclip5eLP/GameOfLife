@@ -17,19 +17,24 @@
         padding: 15px;
         box-shadow: 0px 0px 10px black;
       }
+
+      h5 {
+        margin-top: -30px;
+      }
     </style>
   </head>
   <body>
     <div id="main" align="center">
       <div class="wrapper">
         <h1>Game of Life</h1>
+        <h5>By Eclip5e</h5>
         <hr><br><br>
         <div id="cell_canvas"></div><br>
         Generation: <span id="genDisp">0</span><br><br>
         Dimensions:  <input type="text" placeholder="Enter new Height" id="inputDim"><br>
         <button onclick="changeDim();">Change</button>
         <hr>
-        <button onclick="gridStart();">Start / Pause</button> <button onclick="gridClear();">Clear</button> <button onclick="gridRandomize();">Randomize</button> <button onclick="gridExport();">Export</button> <button onclick="document.getElementById('inputImport').click();">Import</button><br><br>
+        <button onclick="gridStart();">Start / Pause</button> <button onclick="gridClear();">Clear</button> <button onclick="gridRandomize();">Randomize</button> <button onclick="gridExport();">Export</button> <button onclick="document.getElementById('inputImport').click();">Import</button> Allow Repeat: <input type="checkbox" id="inputAllowRepeat" onclick="gridAllowRepeat();"><br><br>
         Tick Speed:  <input type="text" placeholder="Enter Tick Speed" id="inputSpeed" oninput="changeSpeed();"><br>
         <br><h2><div id="msgService"></div></h2>
       </div>

@@ -13,9 +13,11 @@ var cWidth = 600;
 var cHeight = 400;
 var cellSize;
 
+var last;
 var boot = true;
 var speedCalled = false;
 var paused = true;
+var allowRepeat = false;
 
 var endOfGen = false;
 
@@ -94,11 +96,8 @@ function draw() {
 	      		}
 	    	}
 	  	}
-	  	if (JSON.stringify(grid) == JSON.stringify(next)) {
-	  		endOfGen = true;
-	  		generation -= 1;
-	  		msg.send("End of Generation");
-	  	}
+	  	analyzePattern(grid, next);
+	  	last = grid;
 		grid = next;
 
 		generation++;
@@ -285,6 +284,31 @@ var handlers = {
 	  	document.body.removeChild(element);
 
 	  	return true;
+	}
+}
+
+function analyzePattern(grd, nxt) {
+	if (JSON.stringify(grd) == JSON.stringify(nxt)) {
+  		endOfGen = true;
+  		generation -= 1;
+  		msg.send("End of Generation");
+  	}
+  	if (JSON.stringify(last) == JSON.stringify(nxt)) {
+  		console.log(allowRepeat);
+  		if (!allowRepeat) {
+  			endOfGen = true;
+  			generation -= 1;
+  		}
+  		msg.send("Repeating Generation");
+  	}
+}
+
+function gridAllowRepeat() {
+	var chk = document.getElementById("inputAllowRepeat").checked;
+	if (chk) {
+		allowRepeat = true;
+	} else {
+		allowRepeat = false;
 	}
 }
 
