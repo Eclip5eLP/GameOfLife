@@ -1,4 +1,4 @@
-# ToDoList
+# Game of Life
 
 Made By
 ```
